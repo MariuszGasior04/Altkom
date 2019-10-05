@@ -14,20 +14,21 @@ public class Calendar {
         LocalDate today = LocalDate.now();
 //        System.out.println(today);
 //        System.out.println(today.getDayOfWeek());
-        Month m = today.getMonth();
+
+        LocalDate firstDecember = LocalDate.of(2019, Month.DECEMBER, 1);
+        Month m = firstDecember.getMonth();
         System.out.println(m.toString() + " " + today.getYear());
-        LocalDate firstOctober = LocalDate.of(2019, Month.OCTOBER, 1);
-        System.out.println(firstOctober.getDayOfWeek());
+        //System.out.println(firstDecember.getDayOfWeek());
 
         for (DayOfWeek dow: DayOfWeek.values()) {
             System.out.printf("%3s", dow.getDisplayName(TextStyle.NARROW_STANDALONE, new Locale("pl", "PL")));
         }
         System.out.println();
-        while (firstOctober.isBefore(LocalDate.of(2019, Month.NOVEMBER, 1))) {
+        while (firstDecember.isBefore(LocalDate.of(2020, Month.JANUARY, 1))) {
             for (DayOfWeek dow : DayOfWeek.values()) {
-                if (firstOctober.getDayOfWeek() == dow && firstOctober.isBefore(LocalDate.of(2019, Month.NOVEMBER, 1))) {
-                    System.out.printf("%3s", firstOctober.getDayOfMonth());
-                    firstOctober = firstOctober.plusDays(1);
+                if (firstDecember.getDayOfWeek() == dow && firstDecember.isBefore(LocalDate.of(2020, Month.JANUARY, 1))) {
+                    System.out.printf("%3s", firstDecember.getDayOfMonth());
+                    firstDecember = firstDecember.plusDays(1);
                 } else {
                     System.out.printf("   ");
                 }
